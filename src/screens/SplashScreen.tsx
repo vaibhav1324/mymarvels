@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const LandingPage = () => {
+const SplashScreen = () => {
     return (
         <View>
-            <Text>My Marvel</Text>
+            <Text>SplashScreen</Text>
         </View>
     );
 };
 
-export default LandingPage;
+export default SplashScreen;
