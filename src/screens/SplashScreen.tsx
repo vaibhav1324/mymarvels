@@ -1,12 +1,24 @@
+import WithLogoContainer from 'components/WithLogoContainer';
 import React from 'react';
-import {View, Text} from 'react-native';
+import {StyleSheet, ActivityIndicator} from 'react-native';
 
 const SplashScreen = () => {
     return (
-        <View>
-            <Text>SplashScreen</Text>
-        </View>
+        <WithLogoContainer>
+            <ActivityIndicator
+                style={styles.loader}
+                animating
+                color="white"
+                size="large"
+            />
+        </WithLogoContainer>
     );
 };
+
+const styles = StyleSheet.create({
+    loader: {
+        marginTop: 150,
+    },
+});
 
 export default SplashScreen;
