@@ -136,6 +136,14 @@
 			name = MyMarvels;
 			sourceTree = "<group>";
 		};
+		1E3AA20FD9A74EA08BDFA411 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +173,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D4315BB8BD784A8A8544A2FF /* Pods */,
+				1E3AA20FD9A74EA08BDFA411 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
