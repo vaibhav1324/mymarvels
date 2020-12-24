@@ -6,59 +6,44 @@ import {Feed} from 'screens/Feed';
 import {Comics} from 'screens/Comics';
 import {Characters} from 'screens/Characters';
 import {Profile} from 'screens/Profile';
-import {SafeAreaView} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const {Navigator, Screen} = createBottomTabNavigator();
 
 const TabNavigator = () => {
+    const {bottom} = useSafeAreaInsets();
     return (
-        <>
-            <SafeAreaView style={{flex: 0, backgroundColor: 'white'}} />
-            <Navigator
-                screenOptions={({route}) => ({
-                    tabBarIcon: ({color, size}) => {
-                        let iconName = 'reader-outline';
-
-                        if (route.name === 'Comics') {
-                            iconName = 'book-outline';
-                        }
-                        if (route.name === 'Characters') {
-                            iconName = 'people-outline';
-                        }
-                        if (route.name === 'Profile') {
-                            iconName = 'person-outline';
-                        }
-                        return (
-                            <Ionicons
-                                name={iconName}
-                                size={size}
-                                color={color}
-                            />
-                        );
-                    },
-                })}
-                lazy
-                tabBarOptions={{
-                    labelStyle: {fontWeight: 'bold'},
-                    adaptive: true,
-                    tabStyle: {height: 50},
-                    style: {
-                        backgroundColor: 'black',
-                        alignItems: 'center',
-                        height: 60,
-                        paddingVertical: 5,
-                    },
-                    activeTintColor: colors.primary,
-                    inactiveTintColor: 'white',
-                }}
-            >
-                <Screen name="Feed" component={Feed} />
-                <Screen name="Comics" component={Comics} />
-                <Screen name="Characters" component={Characters} />
-                <Screen name="Profile" component={Profile} />
-            </Navigator>
-            <SafeAreaView style={{flex: 0, backgroundColor: 'black'}} />
-        </>
+        <Navigator
+            screenOptions={({route}) => ({
+                tabBarIcon: ({color, size}) => {
+                    let iconName = 'book-outline';
+                    if (route.name === 'Characters') {
+                        iconName = 'people-outline';
+                    }
+                    return (
+                        <Ionicons name={iconName} size={size} color={color} />
+                    );
+                },
+            })}
+            lazy
+            tabBarOptions={{
+                labelStyle: {fontWeight: 'bold', fontSize: 13},
+                adaptive: true,
+                tabStyle: {height: 50},
+                style: {
+                    backgroundColor: 'black',
+                    alignItems: 'center',
+                    height: 60,
+                    paddingVertical: 5,
+                    paddingBottom: bottom + 30,
+                },
+                activeTintColor: colors.primary,
+                inactiveTintColor: '#afafaf',
+            }}
+        >
+            <Screen name="Characters" component={Characters} />
+            <Screen name="Comics" component={Comics} />
+        </Navigator>
     );
 };
 

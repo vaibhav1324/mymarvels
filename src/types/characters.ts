@@ -3,7 +3,7 @@ export type Character = {
     name: string;
     description: string;
     modified: Date;
-    resourceURL: string;
+    resourceURI: string;
     urls: URL[];
     thumbnail: Image;
     comics: ResourceList<ComicSummary>;

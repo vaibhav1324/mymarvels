@@ -10,7 +10,7 @@ import * as yup from 'yup';
 import {colors} from 'constants/theme';
 import {LoginGeneratedProps} from './Login.props';
 
-const ValidationSchema = yup.object().shape({
+/*const ValidationSchema = yup.object().shape({
     email: yup
         .string()
         .email('Please enter valid email')
@@ -20,6 +20,11 @@ const ValidationSchema = yup.object().shape({
         .min(8, ({min}) => `Password must be at least ${min} characters`)
         .required('Password is required'),
 });
+disabled={
+    !isValid ||
+    values.password === '' ||
+    values.email === ''
+}*/
 
 const LoginView = (props: LoginGeneratedProps) => {
     return (
@@ -31,7 +36,6 @@ const LoginView = (props: LoginGeneratedProps) => {
                         password: '',
                     }}
                     onSubmit={() => props.onSubmit()}
-                    validationSchema={ValidationSchema}
                 >
                     {({
                         submitForm,
@@ -83,11 +87,6 @@ const LoginView = (props: LoginGeneratedProps) => {
                             <Button
                                 title="LOGIN"
                                 onPress={submitForm}
-                                disabled={
-                                    !isValid ||
-                                    values.password === '' ||
-                                    values.email === ''
-                                }
                                 loading={isSubmitting}
                             />
                         </>
