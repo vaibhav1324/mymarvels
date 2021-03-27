@@ -18,7 +18,7 @@ const ValidationSchema = yup.object().shape({
         .required('Password is required'),
 });
 
-const SignUpView = () => {
+const SignUpView = ({onSubmit}: {onSubmit: (values: any) => void}) => {
     return (
         <WithLogoContainer>
             <View style={styles.container}>
@@ -28,7 +28,7 @@ const SignUpView = () => {
                         email: '',
                         password: '',
                     }}
-                    onSubmit={(values) => console.log(values)}
+                    onSubmit={(values) => onSubmit(values)}
                     validationSchema={ValidationSchema}
                 >
                     {({

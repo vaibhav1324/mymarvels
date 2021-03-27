@@ -35,7 +35,7 @@ const LoginView = (props: LoginGeneratedProps) => {
                         email: '',
                         password: '',
                     }}
-                    onSubmit={() => props.onSubmit()}
+                    onSubmit={(values) => props.onSubmit(values)}
                 >
                     {({
                         submitForm,

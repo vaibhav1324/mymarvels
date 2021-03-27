@@ -7,6 +7,7 @@ import Welcome from 'screens/Welcome';
 import Login from 'screens/Login';
 import SignUp from 'screens/SignUp';
 import Tabs from './TabNavigation';
+import {useCredentialStore} from 'stores/useCredentialStore';
 
 export const noHeader = {header: () => null};
 
@@ -18,7 +19,7 @@ export const ROUTES = Object.freeze({
     HOME: 'Home',
 });
 
-const screens = [
+const authScreens = [
     {
         name: ROUTES.WELCOME,
         component: Welcome,
@@ -34,6 +35,9 @@ const screens = [
         component: SignUp,
         options: noHeader,
     },
+];
+
+const mainScreens = [
     {
         name: ROUTES.HOME,
         component: Tabs,
@@ -41,13 +45,22 @@ const screens = [
     },
 ];
 
-const routes = () =>
-    screens.map((item, index) => <Screen key={`${index}`} {...item} />);
+const routes = (token?: string) => {
+    const screens = Boolean(token) ? mainScreens : authScreens;
+    return (
+        <>
+            {screens.map((item, index) => (
+                <Screen key={`${index}`} {...item} />
+            ))}
+        </>
+    );
+};
 
 const {Navigator, Screen} = createStackNavigator();
 
 const MainNavigation = () => {
     const [isSplashScreen, setIsSplashScreen] = useState<boolean>(true);
+    const {token} = useCredentialStore((state) => state);
 
     useEffect(() => {
         setTimeout(() => {
@@ -65,7 +78,7 @@ const MainNavigation = () => {
                         options={noHeader}
                     />
                 ) : (
-                    routes()
+                    routes(token)
                 )}
             </Navigator>
         </NavigationContainer>
