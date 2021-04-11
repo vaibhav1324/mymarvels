@@ -1,6 +1,6 @@
-import WithLogoContainer from 'components/WithLogoContainer';
 import React from 'react';
 import {StyleSheet, ActivityIndicator} from 'react-native';
+import WithLogoContainer from 'components/WithLogoContainer';
 
 const SplashScreen = () => {
     return (

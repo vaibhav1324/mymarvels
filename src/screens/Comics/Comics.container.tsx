@@ -1,14 +1,10 @@
-import {getAllComics} from 'api/comics';
 import React from 'react';
-import {useQuery} from 'react-query';
 import {ComicsProps} from './Comics.props';
 import ComicsView from './Comics.view';
+import {useComicsQuery} from 'hooks/useComicsQuery';
 
 const ComicsContainer = (props: ComicsProps) => {
-    const {data, isError, error, isLoading} = useQuery(
-        'get-all-comics',
-        getAllComics,
-    );
+    const {data, isLoading} = useComicsQuery();
 
     return <ComicsView comics={data || []} isLoading={isLoading} />;
 };
