@@ -1,6 +1,8 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import create, { State } from 'zustand';
+
 import { persist } from 'zustand/middleware';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface CurrentUser {
   userName?: string;

@@ -1,9 +1,12 @@
+import React, { FC } from 'react';
+
 import { width } from 'constants/theme';
-import React from 'react';
+
 import { Input } from 'react-native-elements';
+
 import { InputProps } from './input.props';
 
-const InputView = (props: InputProps) => {
+const InputView: FC<InputProps> = (props) => {
   return (
     <Input
       {...props}

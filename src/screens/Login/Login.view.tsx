@@ -2,7 +2,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from 'react-native-elements';
-import Input from 'components/Input/Input.view';
+import Input from 'components/Input';
 import WithLogoContainer from 'components/WithLogoContainer';
 import { Formik } from 'formik';
 import Button from 'components/Button';

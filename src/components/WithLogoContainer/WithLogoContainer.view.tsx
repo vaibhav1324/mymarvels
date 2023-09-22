@@ -1,9 +1,12 @@
-import { height, width } from 'constants/theme';
-import React from 'react';
+import React, { FC } from 'react';
+
 import { View, StyleSheet, Image } from 'react-native';
+
+import { height, width } from 'constants/theme';
+
 import { WithLogoContainerProps } from './WithLogoContainer.props';
 
-const WithLogoContainer = (props: WithLogoContainerProps) => {
+const WithLogoContainer: FC<WithLogoContainerProps> = (props) => {
   return (
     <View style={styles.container}>
       <Image source={require('res/marvel_img.jpg')} style={styles.image} />

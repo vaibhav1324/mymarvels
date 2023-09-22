@@ -1,1 +1,1 @@
-export { default as Profile } from './Profile.container';
+export { default } from './Profile.container';

@@ -1,10 +1,12 @@
-/* eslint-disable react-native/no-inline-styles */
-import { colors, width } from 'constants/theme';
-import React from 'react';
+import React, { FC } from 'react';
+
 import { StyleSheet } from 'react-native';
+
 import { Button as Btn, ButtonProps } from 'react-native-elements';
 
-const Button = (props: ButtonProps) =>
+import { colors, width } from 'constants/theme';
+
+const Button: FC<ButtonProps> = (props) =>
   props.type === 'outline' ? (
     <Btn
       {...props}
