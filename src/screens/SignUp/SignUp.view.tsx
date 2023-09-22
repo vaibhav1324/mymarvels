@@ -5,6 +5,7 @@ import { View, StyleSheet } from 'react-native';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import * as yup from 'yup';
+import BackButton from 'components/BackButton';
 
 const ValidationSchema = yup.object().shape({
   fullName: yup.string().required('enter your full name'),
@@ -21,6 +22,7 @@ const ValidationSchema = yup.object().shape({
 const SignUpView = ({ onSubmit }: { onSubmit: (values: any) => void }) => {
   return (
     <WithLogoContainer>
+      <BackButton />
       <View style={styles.container}>
         <Formik
           initialValues={{

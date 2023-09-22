@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from 'react-native-elements';
@@ -6,9 +5,9 @@ import Input from 'components/Input';
 import WithLogoContainer from 'components/WithLogoContainer';
 import { Formik } from 'formik';
 import Button from 'components/Button';
-import * as yup from 'yup';
 import { colors } from 'constants/theme';
 import { LoginGeneratedProps } from './Login.props';
+import BackButton from 'components/BackButton';
 
 /*const ValidationSchema = yup.object().shape({
     email: yup
@@ -29,6 +28,7 @@ disabled={
 const LoginView = (props: LoginGeneratedProps) => {
   return (
     <WithLogoContainer>
+      <BackButton />
       <View style={styles.container}>
         <Formik
           initialValues={{
@@ -78,7 +78,7 @@ const LoginView = (props: LoginGeneratedProps) => {
               />
               <Text
                 style={styles.forgotPass}
-                onPress={() => alert('forgot pass')}
+                onPress={() => console.log('forgot pass')}
               >
                 Forgot Password?
               </Text>
