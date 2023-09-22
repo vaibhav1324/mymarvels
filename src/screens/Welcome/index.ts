@@ -1,1 +1,1 @@
-export {default} from './Welcome.view';
+export { default } from './Welcome.view';

@@ -1,1 +1,1 @@
-export {default as Comics} from './Comics.container';
+export { default as Comics } from './Comics.container';
