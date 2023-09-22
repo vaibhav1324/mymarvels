@@ -12,12 +12,18 @@ const right_spacer: Partial<Character> = {
 };
 
 const CharactersContainer = (props: CharactersProps) => {
-  const { data, isLoading } = useCharactersQuery();
+  const { data = [], isLoading } = useCharactersQuery();
 
-  data?.unshift(left_spacer);
-  data?.push(right_spacer);
+  const filteredCharacters = data?.filter(
+    (c) => !c.thumbnail?.path?.includes('image_not_available'),
+  );
 
-  return <CharactersView characters={data} isLoading={isLoading} />;
+  filteredCharacters?.unshift(left_spacer);
+  filteredCharacters?.push(right_spacer);
+
+  return (
+    <CharactersView characters={filteredCharacters} isLoading={isLoading} />
+  );
 };
 
 export default CharactersContainer;

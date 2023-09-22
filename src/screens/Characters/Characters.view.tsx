@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { height, width } from 'constants/theme';
 import { View, Text, Animated, Easing } from 'react-native';
@@ -42,7 +41,7 @@ const BackButton = ({ onPress, opacity, isOpen }: BackButtonProps) =>
         size={25}
         color="white"
         type="ionicon"
-        name="arrow-undo"
+        name="close"
         onPress={onPress}
         backgroundColor="white"
       />
