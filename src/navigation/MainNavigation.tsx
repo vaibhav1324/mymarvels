@@ -7,6 +7,8 @@ import { useCredentialStore } from 'stores/useCredentialStore';
 
 import 'react-native-gesture-handler';
 
+import { ROUTES } from 'constants/routes';
+
 import Login from 'screens/Login';
 import Tabs from './TabNavigation';
 import SignUp from 'screens/SignUp';
@@ -14,14 +16,6 @@ import Welcome from 'screens/Welcome';
 import SplashScreen from 'screens/SplashScreen';
 
 export const noHeader = { header: () => null };
-
-export const ROUTES = Object.freeze({
-  SPLASH: 'Splash',
-  WELCOME: 'Welcome',
-  LOGIN: 'Login',
-  SINGUP: 'SignUp',
-  HOME: 'Home',
-});
 
 const authScreens = [
   {
